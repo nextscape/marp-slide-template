@@ -1,7 +1,7 @@
 /* @theme nextscape */
 @import "default";
 
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&family=Noto+Sans+JP&family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
 
 :root {
@@ -16,6 +16,7 @@
     --color-background: white;
     --color-foreground: #202020;
     --color-primary: #0088D1;
+    --color-secondary: #005588;
     --color-accent: #F7D68F;
     --color-footer: #9aa5bd;
 
@@ -27,13 +28,12 @@
     /* グラデーション */
     --gradient-lead-bg: linear-gradient(135deg, #1e60ad, #003981, #002552);
     --gradient-topbar: linear-gradient(90deg, #0288d1, #1e60ad);
-    --gradient-highlight: linear-gradient(transparent 50%, var(--color-accent) 50%);
 
     /* ロゴ画像 */
     --logo-url: url("../images/logo-white.svg");
     --logo-width: 180px;
     --logo-height: 60px;
-    
+
     /* レイアウト変数 */
     --gap-column: 20px;
 }
@@ -131,12 +131,29 @@ section:not(.lead)::before {
 }
 
 /* 本文文字サイズの調整用 */
-.text-xxl { font-size: var(--text-xxl); }
-.text-xl { font-size: var(--text-xl); }
-.text-lg { font-size: var(--text-lg); }
-.text-sm { font-size: var(--text-sm); }
-.text-xs { font-size: var(--text-xs); }
-.text-xxs { font-size: var(--text-xxs); }
+.text-xxl {
+    font-size: var(--text-xxl);
+}
+
+.text-xl {
+    font-size: var(--text-xl);
+}
+
+.text-lg {
+    font-size: var(--text-lg);
+}
+
+.text-sm {
+    font-size: var(--text-sm);
+}
+
+.text-xs {
+    font-size: var(--text-xs);
+}
+
+.text-xxs {
+    font-size: var(--text-xxs);
+}
 
 /* 見出し */
 section :is(h1, h2, h3, h4, h5, h6) {
@@ -163,9 +180,17 @@ section[class*="columns-"] h2 {
 }
 
 /* カラム数の定義を統合 */
-section.columns-2 { column-count: 2; }
-section.columns-3 { column-count: 3; }
-section.columns-4 { column-count: 4; }
+section.columns-2 {
+    column-count: 2;
+}
+
+section.columns-3 {
+    column-count: 3;
+}
+
+section.columns-4 {
+    column-count: 4;
+}
 
 /* H3 とその直後のブロックを同じカラム内で保持 */
 section[class*="columns-"] h3 {
@@ -202,18 +227,25 @@ section table :is(th, td) {
 }
 
 /* 強調テキストのハイライト */
-strong {
-    background: var(--gradient-highlight);
-    padding: 0 0.2em;
-    margin: 0 0.2em;
+section strong {
+    font-weight: 900;
+    text-decoration: underline;
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.2em;
+    text-decoration-color: var(--color-secondary);
 }
 
 /* リンクのデコレーション */
-a {
+section a {
     color: var(--color-primary);
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.2em;
+}
+
+/* 改行したくない要素 */
+section span {
+    white-space: nowrap;
 }
 
 /* 背景分割レイアウトの幅調整 */
